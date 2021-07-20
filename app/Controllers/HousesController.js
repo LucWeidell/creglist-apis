@@ -27,9 +27,9 @@ export default class HousesController{
       let rawHouse = {
         year: form.year.value,
         levels: form.levels.value,
-        bedrooms: form.year.value,
-        bedrooms: form.year.value,
-        bathrooms: form.year.value,
+        squareFt: form.squareFeet.value,
+        bedrooms: form.bed.value,
+        bathrooms: form.bath.value,
         price: form.price.value,
         description: form.description.value,
         imgUrl: form.imgUrl.value

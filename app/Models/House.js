@@ -9,7 +9,7 @@ export default class House{
      constructor({year, levels, bedrooms, bathrooms, squareFt, price, description, imgUrl, id}){
       this.year = year,
       this.levels = levels,
-      this.bedrooms = beds,
+      this.bedrooms = bedrooms,
       this.bathrooms = bathrooms,
       this.id = id,
       this.squareFt = squareFt || 'no size ',
@@ -26,10 +26,12 @@ export default class House{
           <div class="car bg-light shadow">
             <img src=${this.imgUrl} class = w-100 alt="house">
             <div class = "p-3">
-              <p><b>${this.levels}}- ${this.squareFt}ft^2 - ${this.year}</b></p>
+              <p><b>${this.levels}- ${this.squareFt}ft^2 - ${this.year}</b></p>
               <p>Beds - ${this.bedrooms} : Baths - ${this.bathrooms}</p>
               <p>${this.description}</p>
               <h5><i>$${this.price.toLocaleString('en-US')}</i></h5>
+              <button class="btn btn-info btn-block" onclick="app.housesController.bidHouse('${this.id}')"> bid </button>
+              <button class="btn btn-warning btn-block" onclick="app.housesController.deleteHouse('${this.id}')"> delete </button>
             </div>
           </div>
         </div>
