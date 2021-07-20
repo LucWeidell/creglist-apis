@@ -1,6 +1,7 @@
 import { ProxyState } from "../AppState.js"
 //NOTE why does service need to know car class to make one : THINK I KNOW WHU
 import Car from "../Models/Car.js"
+import { api } from "./AxiosService.js"
 
 
 
@@ -8,20 +9,29 @@ class CarsService {
   constructor(){}
 
 
-  createCar(rawCar){
-
-    // NOTE api put here
-    ProxyState.cars = [...ProxyState.cars, new Car(rawCar)]
+  async getAllCars(){
+    const res = await api.get('cars')
+    console.log('your car getter',res.data)
+    ProxyState.cars = res.data.map(c => new Car(c))
   }
-  deleteCar(carID){
+  async createCar(rawCar){
+    const res = await api.post('cars', rawCar)
+    console.log('your new car sir',res.data)
+    ProxyState.cars = [...ProxyState.cars, new Car(res.data)]
+  }
+
+  async deleteCar(carID){
     // NOTE api delete here
     ProxyState.cars = ProxyState.cars.filter(c => c.id != carID)
+    const res = await api.delete('cars/' + carID)
+    console.log('your deleted car sir',res.data)
   }
 
-  bidCar(carID){
+  async bidCar(carID){
     let foundCar = ProxyState.cars.find(c.id = carID)
     foundCar.price += 100
-    // FIXME api put
+    const res = await api.put('cars/'+carID, foundCar)
+    console.log('your fixed car sir',res.data)
     ProxyState.cars = ProxyState.cars
   }
 }

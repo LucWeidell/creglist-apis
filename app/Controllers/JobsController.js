@@ -18,6 +18,15 @@ export default class JobsController{
     ProxyState.on('jobs', _draw)
 
     _draw()
+    this.getAllJobs()
+  }
+
+  async getAllJobs(){
+    try{
+    await jobsService.getAllJobs()
+    } catch(error) {
+      console.log('error job getting', error)
+    }
   }
 
   async createJob(){

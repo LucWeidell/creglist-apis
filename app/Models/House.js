@@ -26,7 +26,7 @@ export default class House{
           <div class="car bg-light shadow">
             <img src=${this.imgUrl} class = w-100 alt="house">
             <div class = "p-3">
-              <p><b>${this.levels}- ${this.squareFt}ft^2 - ${this.year}</b></p>
+              <p><b>Floors: ${this.levels}- Size: ${this.squareFt}ft^2 <br>Year: ${this.year}</b></p>
               <p>Beds - ${this.bedrooms} : Baths - ${this.bathrooms}</p>
               <p>${this.description}</p>
               <h5><i>$${this.price.toLocaleString('en-US')}</i></h5>

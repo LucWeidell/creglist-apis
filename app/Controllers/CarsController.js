@@ -17,6 +17,7 @@ export default class CarsController {
     //When cars changes in the ProxyState, run teh draw method
     ProxyState.on('cars', _draw)
     _draw()
+    this.getAllCars()
   }
 
   async createCar(){
@@ -47,6 +48,13 @@ export default class CarsController {
       form.reset()
     } catch (error){
       console.log('creating car fail:', error)
+    }
+  }
+  async getAllCars(){
+    try{
+    carsService.getAllCars()
+    } catch (error) {
+      console.log("getting cars error", error)
     }
   }
 }

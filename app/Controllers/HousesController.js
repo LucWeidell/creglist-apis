@@ -1,5 +1,5 @@
 import { ProxyState } from "../AppState.js";
-import { carsService } from "../Services/CarsService.js";
+import { housesService } from "../Services/HousesService.js";
 
 
 function _draw(){
@@ -14,8 +14,18 @@ function _draw(){
 export default class HousesController{
 
   constructor(){
-    ProxyState.on['houses', _draw]
+    ProxyState.on('houses', _draw)
     _draw()
+
+    this.getAllHouses()
+  }
+
+  async getAllHouses(){
+    try{
+    housesService.getAllHouses()
+    } catch (error) {
+      console.log("getting house error", error)
+    }
   }
 
   async createHouse(){

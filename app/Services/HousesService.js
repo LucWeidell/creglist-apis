@@ -1,23 +1,27 @@
 import { ProxyState } from "../AppState.js"
 import House from "../Models/House.js"
-
+import {api} from "./AxiosService.js"
 
 class HousesService{
 
-  createHouse(rawHouse){
-    // NOTE api put here
-    ProxyState.houses = [...ProxyState.houses, new Car(rawHouse)]
-  }
-  deleteCar(houseId){
-    // NOTE api delete here
-    ProxyState.houses = ProxyState.house.filter(h => h.id != houseId)
+  async getAllHouses(){
+    const res = await api.get('houses')
+    console.log('houses getter:', res.data)
+    debugger
+    ProxyState.houses = res.data.map(h => new House(h))
   }
 
-  bidCar(houseId){
-    let foundHouse = ProxyState.house.find(h.id = houseId)
-    foundHouse.price += 100
-    // FIXME api put
-    ProxyState.houses = ProxyState.houses
+  async createHouse(rawHouse){
+    const res = await api.post('houses', rawCar)
+
+    console.log('your new house sir',res.data)
+    ProxyState.houses = [...ProxyState.houses, new House(rawHouse)]
+  }
+  async deleteHouse(houseId){
+
+    ProxyState.houses = ProxyState.houses.filter(h => c.id != carID)
+    const res = await api.delete('houses/' + carID)
+    ProxyState.houses = ProxyState.house.filter(h => h.id != houseId)
   }
 }
 

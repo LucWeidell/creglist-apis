@@ -13,8 +13,8 @@ class AppState extends EventEmitter {
     new Car({make: 'VW', model: 'Gremlin', year: 1988, price: 3400, description: 'Lime Green! You gonna love it', imgURL:'//placebeard.it/750x547'})]
   /** @type {House[]} */
   houses = [
-    new House({year: 1986, floor: 2, beds: 3, bath: 3, squareFt: 2500, price: 1000000, description:'Its cheap!', imgUrl: '//placebeard.it/750x547'}),
-    new House({year: 2000, floor: 1, beds: 2, bath: 1, squareFt: 800, price: 750000, description:'Great young couples place.', imgUrl: '//placebeard.it/750x547'})
+    new House({year: 1986, levels: 2, bedrooms: 3, bathrooms: 3, squareFt: 2500, price: 1000000, description:'Its cheap!', imgUrl: '//placebeard.it/750x547'}),
+    new House({year: 2000, levels: 1, bedrooms: 2, bathrooms: 1, squareFt: 800, price: 750000, description:'Great young couples place.', imgUrl: '//placebeard.it/750x547'})
   ]
   /** @type {Job[]} */
   jobs = [

@@ -7,9 +7,9 @@ export default class Job{
    * Constructor for Jobs:
    * @param {*} Job represents a Job
    */
-    constructor({ salary, position, remote, city, company, hrWeek, overTime, imgUrl, id}){
-      this.rate = rate,
-      this.jobTitle = position,
+    constructor({ rate, salary,jobTitle, position, remote, city, company, hrWeek, overTime, imgUrl, id}){
+      this.rate = salary || rate,
+      this.jobTitle = position || jobTitle,
       this.remote = remote || false,
       this.city = city || 'unknown city',
       this.hours = hrWeek,
