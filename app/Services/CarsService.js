@@ -9,8 +9,12 @@ class CarsService {
 
 
   createCar(rawCar){
-    debugger
+    // NOTE api put here
     ProxyState.cars = [...ProxyState.cars, new Car(rawCar)]
+  }
+  deleteCar(carID){
+    // NOTE api delete here
+    ProxyState.cars = ProxyState.
   }
 }
 

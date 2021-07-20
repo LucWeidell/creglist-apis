@@ -19,19 +19,22 @@ export default class CarsController {
     _draw()
   }
 
-  createCar(){
-    event.preventDefault()
-    console.log(event.target)
-    let form = event.target
+  async createCar(){
+    try{
+      event.preventDefault()
+      console.log(event.target)
+      let form = event.target
 
-    let rawCar = {
-      make: form.make.value,
-      model: form.model.value,
-      year: form.year.value,
-      price: form.price.value,
-      description: form.description.value,
-      imgUrl: form.imgUrl.value
-    }
+      let rawCar = {
+        make: form.make.value,
+        model: form.model.value,
+        year: form.year.value,
+        price: form.price.value,
+        description: form.description.value,
+        imgUrl: form.imgUrl.value
+      }
+
+      await carsService.createCar(rawCar)
     // let rawCar = {
     //   make: form.make.value,
     //   model: form.model.value,
@@ -40,8 +43,10 @@ export default class CarsController {
     //   description: form.description.value,
     //   imgUrl: form.imgUrl.value
     // }
-    carsService.createCar(rawCar)
-    form.reset()
-    _draw()
+      carsService.createCar(rawCar)
+      form.reset()
+    } catch (error){
+      console.log('creating car fail:', error)
+    }
   }
 }
