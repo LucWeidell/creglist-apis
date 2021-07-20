@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js";
+import { jobsService } from "../Services/JobsService.js";
 
 
 function _draw(){
@@ -17,5 +18,28 @@ export default class JobsController{
     ProxyState.on('jobs', _draw)
 
     _draw()
+  }
+
+  async createJob(){
+    try{
+      event.preventDefault()
+      console.log(event.target)
+      let form = event.target
+
+      let rawJob = {
+        position: form.position.value,
+        salary: form.salary.value,
+        city: form.city.value,
+        hrWeek: form.hrWeek.value,
+        overTime: form.overtime.value,
+        description: form.description.value,
+        imgUrl: form.imgUrl.value
+      }
+
+      await jobsService.createJob(rawJob)
+      form.reset()
+    } catch (error){
+      console.log('creating job fail:', error)
+    }
   }
 }

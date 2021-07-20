@@ -18,34 +18,27 @@ export default class HousesController{
     _draw()
   }
 
-  async createCar(){
+  async createHouse(){
     try{
       event.preventDefault()
       console.log(event.target)
       let form = event.target
 
-      let rawCar = {
-        make: form.make.value,
-        model: form.model.value,
+      let rawHouse = {
         year: form.year.value,
+        levels: form.levels.value,
+        bedrooms: form.year.value,
+        bedrooms: form.year.value,
+        bathrooms: form.year.value,
         price: form.price.value,
         description: form.description.value,
         imgUrl: form.imgUrl.value
       }
 
-      await carsService.createCar(rawCar)
-    // let rawCar = {
-    //   make: form.make.value,
-    //   model: form.model.value,
-    //   year: form.year.value,
-    //   price: form.price.value,
-    //   description: form.description.value,
-    //   imgUrl: form.imgUrl.value
-    // }
-      carsService.createCar(rawCar)
+      await housesService.createHouse(rawHouse)
       form.reset()
     } catch (error){
-      console.log('creating car fail:', error)
+      console.log('creating house fail:', error)
     }
   }
 }

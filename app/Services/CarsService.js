@@ -9,12 +9,20 @@ class CarsService {
 
 
   createCar(rawCar){
+
     // NOTE api put here
     ProxyState.cars = [...ProxyState.cars, new Car(rawCar)]
   }
   deleteCar(carID){
     // NOTE api delete here
-    ProxyState.cars = ProxyState.
+    ProxyState.cars = ProxyState.cars.filter(c => c.id != carID)
+  }
+
+  bidCar(carID){
+    let foundCar = ProxyState.cars.find(c.id = carID)
+    foundCar.price += 100
+    // FIXME api put
+    ProxyState.cars = ProxyState.cars
   }
 }
 

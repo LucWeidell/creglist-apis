@@ -6,11 +6,11 @@ export default class House{
    * Constructor for house:
    * @param {*} House represents a house
    */
-     constructor({year, floor, beds, bath, squareFt, price, description, imgUrl, id}){
+     constructor({year, levels, bedrooms, bathrooms, squareFt, price, description, imgUrl, id}){
       this.year = year,
-      this.floor = floor,
-      this.beds = beds,
-      this.bath = bath,
+      this.levels = levels,
+      this.bedrooms = beds,
+      this.bathrooms = bathrooms,
       this.id = id,
       this.squareFt = squareFt || 'no size ',
       this.price = price,
@@ -26,8 +26,8 @@ export default class House{
           <div class="car bg-light shadow">
             <img src=${this.imgUrl} class = w-100 alt="house">
             <div class = "p-3">
-              <p><b>${this.floor}}- ${this.squareFt}ft^2 - ${this.year}</b></p>
-              <p>Beds - ${this.beds} : Baths - ${this.bath}</p>
+              <p><b>${this.levels}}- ${this.squareFt}ft^2 - ${this.year}</b></p>
+              <p>Beds - ${this.bedrooms} : Baths - ${this.bathrooms}</p>
               <p>${this.description}</p>
               <h5><i>$${this.price.toLocaleString('en-US')}</i></h5>
             </div>
