@@ -12,8 +12,8 @@ export default class Car {
     this.year = year;
     this.price = price;
     this.description = description || 'no description';
+    this.id = id,
     this.imgUrl = imgUrl || '//placebeard.it/300x300'
-    this.id = id
   }
 
    /**
